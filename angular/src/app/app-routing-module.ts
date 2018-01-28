@@ -6,15 +6,17 @@ import { HomeComponent } from 'app/component/home/home.component';
 import { ContactusComponent } from 'app/component/contactus/contactus.component';
 import { BlogComponent } from 'app/component/blog/blog.component';
 import { BlogPostComponent } from 'app/component/blog-post/blog-post.component';
+import { WelcomeComponent } from 'app/component/welcome/welcome.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'welcome', component: WelcomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blogpost', component: BlogPostComponent },
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

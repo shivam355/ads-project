@@ -405,6 +405,8 @@ hr{
 	position:absolute;
 	top:0px;
 	left:0px;
+	height: inherit;
+	width: min-content;
 }
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {
