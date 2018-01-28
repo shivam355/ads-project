@@ -1,14 +1,48 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Angular</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link href="assets/css/main.css" rel="stylesheet" type="text/css">
+  <script src="assets/js/jquery.min-latest.js"></script>
+  <script src="assets/js/jquery.nivo.slider.js"></script>
+  <script src="assets/js/jquery.prettyPhoto.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script>
+    $(function () {
+      setInterval("rotateDiv()", 10000);
+    });
+    function rotateDiv() {
+      var currentDiv = $("#simpleslider div.current");
+      var nextDiv = currentDiv.next();
+      if (nextDiv.length == 0) nextDiv = $("#simpleslider div:first");
+      currentDiv.removeClass('current')
+        .addClass('previous')
+        .fadeOut('2000');
+      nextDiv.fadeIn('3000')
+        .addClass('current', function () {
+          currentDiv.fadeOut('2000', function () {
+            currentDiv.removeClass('previous');
+          });
+        });
+    }
+  </script>
+  <script charset="utf-8">
+    $(document)
+      .ready(function () {
+        $("a[rel^='prettyPhoto']")
+          .prettyPhoto();
+      });
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>
