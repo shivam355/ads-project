@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         Util.createSession(sessionTo);
         this.session.isLoggedIn = true;
         this.session.user = sessionTo;
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       },
       error => { console.log("error: " + error); },
       () => { console.log("login request completed"); }

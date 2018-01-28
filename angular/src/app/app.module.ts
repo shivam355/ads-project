@@ -14,6 +14,7 @@ import { ContactusComponent } from './component/contactus/contactus.component';
 import { BlogComponent } from './component/blog/blog.component';
 import { BlogPostComponent } from './component/blog-post/blog-post.component';
 import { WelcomeComponent } from './component/welcome/welcome.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { WelcomeComponent } from './component/welcome/welcome.component';
     ContactusComponent,
     BlogComponent,
     BlogPostComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

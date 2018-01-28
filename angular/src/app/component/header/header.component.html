@@ -30,8 +30,8 @@
           <li>
             <a routerLink="/contactus">Contact Us</a>
           </li>
-          <li *ngIf="session.isLoggedIn"> 
-            <a href="javascript:void(0)" (click)="logout()">Logout</a>
+          <li *ngIf="session.isLoggedIn">
+            <a routerLink="/logout">Logout</a>
           </li>
         </ul>
       </div>
