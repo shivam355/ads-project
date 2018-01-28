@@ -1,11 +1,12 @@
 import { Http, Request, Response, Headers, ResponseOptions, RequestOptions } from '@angular/http';
 import { Observable } from "rxjs/Observable";
+import Constant from 'app/common/constant';
+import { SessionTo } from 'app/class-to/session-to';
 
 export default class Util {
-    private static readonly preUrl: string = "http://localhost";
 
     static url(relativeUrl: string): string {
-        return this.preUrl + relativeUrl;
+        return Constant._PRE_URL + relativeUrl;
     }
 
     static body(data?: any): string {
@@ -33,5 +34,31 @@ export default class Util {
         }
         console.error(errMsg);
         return Observable.throw(errMsg);
+    }
+
+    static isSessionExist(): boolean {
+        let sessionStr: string = localStorage.getItem(Constant._USER_SESSION_KEY);
+        if (sessionStr) {
+            return true;
+        }
+        return false;
+    }
+
+    static getSession(): SessionTo {
+        let sessionStr: string = localStorage.getItem(Constant._USER_SESSION_KEY);
+        if (!sessionStr) {
+            return null;
+        }
+        let sessionTo: SessionTo = JSON.parse(sessionStr);
+        return sessionTo;
+    }
+
+    static createSession(sessionTo: SessionTo) {
+        this.invalidateSession();
+        localStorage.setItem(Constant._USER_SESSION_KEY, JSON.stringify(sessionTo));
+    }
+
+    static invalidateSession() {
+        localStorage.removeItem(Constant._USER_SESSION_KEY);
     }
 }

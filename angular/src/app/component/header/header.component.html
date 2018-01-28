@@ -3,15 +3,23 @@
   <div id="navigation">
     <div id="navigation_wrap">
       <!-- Start contact info area -->
-      <div id="conteactinfo">
-        <strong>Email:</strong> info@varrange.xyz |
-        <strong>Mobile:</strong> (+91) 9999 03 8818</div>
+      <div id="conteactinfo" *ngIf="!session.isLoggedIn">
+        <strong>Email:</strong> {{session.companyEmail}} |
+        <strong>Mobile:</strong> {{session.companyMobileNo}}
+      </div>
+      <div id="conteactinfo" *ngIf="session.isLoggedIn">
+        <strong>Hi </strong> {{session.user.displayName}}, contact at
+        <strong>{{session.companyMobileNo}}</strong> for more details.
+      </div>
       <!-- End contact info area -->
       <!-- Start navigation -->
       <div id="navi">
         <ul>
-          <li>
+          <li *ngIf="session.isLoggedIn">
             <a routerLink="/home">Home</a>
+          </li>
+          <li *ngIf="!session.isLoggedIn">
+            <a routerLink="/login">Login</a>
           </li>
           <li>
             <a routerLink="/blog">Blog</a>
@@ -21,6 +29,9 @@
           </li> -->
           <li>
             <a routerLink="/contactus">Contact Us</a>
+          </li>
+          <li *ngIf="session.isLoggedIn"> 
+            <a href="javascript:void(0)" (click)="logout()">Logout</a>
           </li>
         </ul>
       </div>

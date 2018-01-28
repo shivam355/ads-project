@@ -1,13 +1,36 @@
-<div class="container">
+<!-- Start H1 Title -->
+<div class="titlesnormal">
   <h1>Login</h1>
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <label for="name">UserName</label>
-    <input id="un" name="userName" type="text" required [(ngModel)]="model.userName">
-
-    <label for="alterEgo">Password</label>
-    <input id="pass" name="password" type="password" [(ngModel)]="model.password">
-
-    <button type="submit">Submit</button>
-
-  </form>
+  <span></span>
 </div>
+<!-- End H1 Title -->
+<!-- Start Main Body Wrap -->
+<div id="main-wrap">
+  <!-- Start Full Width -->
+  <div class="boxes-full">
+    <div class="boxes-padding fullpadding">
+      <div id="contactwarning"></div>
+      <div id="contactajax"></div>
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm" id="ajaxcontactform">
+        <div class="contacttextboxes">
+          <fieldset>
+            <h3>UserName</h3>
+            <input id="userName" [(ngModel)]="model.userName" name="userName" type="text" class="contacttextform" onFocus="if (this.value == 'User Name') {this.value = '';}"
+              value="User Name">
+          </fieldset>
+          <fieldset>
+            <h3>Password</h3>
+            <input id="password" [(ngModel)]="model.password" name="password" type="text" class="contacttextform" onFocus="if (this.value == 'Password') {this.value = '';}"
+              value="Password">
+          </fieldset>
+          <fieldset>
+            <input name="send" type="submit" class="contactformbutton" value="Login">
+          </fieldset>
+        </div>
+      </form>
+    </div>
+    <span class="box-arrow"></span>
+  </div>
+  <!-- End Full Width -->
+</div>
+<!-- End Main Body Wrap -->

@@ -2,7 +2,9 @@ package me.ads.module.login.to;
 
 import java.io.Serializable;
 
-public class UserDetailTo implements Serializable {
+import me.ads.container.RestResponse;
+
+public class UserDetailTo extends RestResponse implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer userId;
 	private String firstName;
