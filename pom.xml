@@ -6,7 +6,7 @@
 	<groupId>me.project</groupId>
 	<artifactId>ads</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>gym</name>
 	<description>Demo project for Spring Boot</description>
